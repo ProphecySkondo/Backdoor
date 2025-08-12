@@ -85,6 +85,17 @@ local supportedGames = {
             decal_limit = 30
         }
     },
+    [13278749064] = {
+        name = "White Room Game",
+        alias = "WHITEROOMGAME",
+        features = {"tools", "fly", "noclip", "teleport", "remotes", "exploits"},
+        script_path = "Whiteroom.lua",
+        special_config = {
+            auto_grab_tools = true,
+            fly_speed = 50,
+            remote_spam_enabled = true
+        }
+    },
 }
 
 local universalFallback = {
