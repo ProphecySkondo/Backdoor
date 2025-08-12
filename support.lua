@@ -70,7 +70,7 @@ local supportedGames = {
         name = "LGBTQ+ Hangout",
         alias = "LGBTQHANGOUT",
         features = {"decal_spam", "fling", "radio"},
-        script_path = "Games/LGBTQ Hangout.lua",
+        script_path = "LGBTQ.lua",
         special_config = {
             decal_limit = 50,
             fling_power = 16
@@ -80,7 +80,7 @@ local supportedGames = {
         name = "MeepCity",
         alias = "MEEPCITY",
         features = {"decal_spam", "radio"},
-        script_path = "Games/Universal.lua",
+        script_path = "universal.lua",
         special_config = {
             decal_limit = 30
         }
@@ -91,7 +91,7 @@ local universalFallback = {
     name = "Universal",
     alias = "UNIVERSAL",
     features = {"fly", "noclip", "speed", "jump", "health", "stamina"},
-    script_path = "Games/Universal.lua",
+    script_path = "universal.lua",
     special_config = {}
 }
 
@@ -157,7 +157,7 @@ function GameSupport:init()
         wait(0.1)
         
         if (type(messagebox) == 'function') then
-            protectedMessagebox(`Game Not Specifically Supported!\n\nPlace ID: {currentPlaceId}\n\nLoading Universal Mode with basic features...`, `Xeon [{executor}]`, 64)
+            protectedMessagebox("Game Not Specifically Supported!\n\nPlace ID: " .. currentPlaceId .. "\n\nLoading Universal Mode with basic features...", "Xeon [" .. executor .. "]", 64)
         end
         
         showProgress("Universal Mode Ready!", 100)
