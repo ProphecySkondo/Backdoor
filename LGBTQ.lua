@@ -10,6 +10,8 @@ local assets = {
     ['liljeff'] = 81995147887584;
     ['synapse'] = 105023401515788;
     ['syn'] = 139762261503275;
+	["palestine"] = 120356544;
+	["anime1"] = 123456789;
 }
 
 -- Load APIs
@@ -112,7 +114,7 @@ mainTab.create_dropdown({
     section = 'left',
     
     option = 'liljeff',
-    options = {'liljeff', 'synapse', 'syn'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
     
     callback = function(value)
         -- Just store the selection
@@ -166,7 +168,7 @@ mainTab.create_dropdown({
     section = 'right',
     
     option = 'liljeff',
-    options = {'liljeff', 'synapse', 'syn'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
     
     callback = function(value) end
 })
@@ -177,7 +179,7 @@ mainTab.create_dropdown({
     section = 'right',
     
     option = 'syn',
-    options = {'liljeff', 'synapse', 'syn'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
     
     callback = function(value) end
 })
@@ -293,7 +295,7 @@ flagsTab.create_dropdown({
     section = 'left',
     
     option = 'liljeff',
-    options = {'liljeff', 'synapse', 'syn'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
     
     callback = function(value) end
 })
@@ -335,7 +337,7 @@ flagsTab.create_dropdown({
     section = 'right',
     
     option = 'liljeff',
-    options = {'liljeff', 'synapse', 'syn'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
     
     callback = function(value) end
 })
