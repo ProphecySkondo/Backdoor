@@ -11,7 +11,9 @@ local assets = {
     ['synapse'] = 105023401515788;
     ['syn'] = 139762261503275;
 	["palestine"] = 120356544;
-	["anime1"] = 123456789;
+	["something"] = 123456789;
+	["killua"] = 109027422827277;
+	["jayboo"] = 110575473381369;
 }
 
 -- Load APIs
@@ -114,7 +116,7 @@ mainTab.create_dropdown({
     section = 'left',
     
     option = 'liljeff',
-    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'something', 'killua', 'jayboo'},
     
     callback = function(value)
         -- Just store the selection
@@ -157,6 +159,32 @@ mainTab.create_textbox({
     callback = function(value) end
 })
 
+mainTab.create_toggle({
+    name = 'MakeMapCustomDecal',
+    flag = 'make_map_custom_decal',
+    section = 'left',
+    enabled = false,
+    
+    callback = function(state)
+        if state then
+            local customAssetId = parseAssetId(Library.Flags['custom_asset_id'])
+            if customAssetId then
+                backdoorapi.Server:ChangeMapDecals(customAssetId)
+            else
+                -- Fallback to selected asset if no custom ID is provided
+                local selectedAsset = Library.Flags['decal_asset'] or 'liljeff'
+                backdoorapi.Server:ChangeMapDecals(assets[selectedAsset])
+            end
+            
+            -- Auto-turn off the toggle after execution
+            spawn(function()
+                wait(0.5)
+                Library.Flags['make_map_custom_decal'] = false
+            end)
+        end
+    end
+})
+
 mainTab.create_title({
     name = 'Two Decal Spam',
     section = 'right'
@@ -168,7 +196,7 @@ mainTab.create_dropdown({
     section = 'right',
     
     option = 'liljeff',
-    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'something', 'killua', 'jayboo'},
     
     callback = function(value) end
 })
@@ -179,7 +207,7 @@ mainTab.create_dropdown({
     section = 'right',
     
     option = 'syn',
-    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'something', 'killua', 'jayboo'},
     
     callback = function(value) end
 })
@@ -295,7 +323,7 @@ flagsTab.create_dropdown({
     section = 'left',
     
     option = 'liljeff',
-    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'something', 'killua', 'jayboo'},
     
     callback = function(value) end
 })
@@ -337,7 +365,7 @@ flagsTab.create_dropdown({
     section = 'right',
     
     option = 'liljeff',
-    options = {'liljeff', 'synapse', 'syn', 'palestine', 'anime1'},
+    options = {'liljeff', 'synapse', 'syn', 'palestine', 'something', 'killua', 'jayboo'},
     
     callback = function(value) end
 })
